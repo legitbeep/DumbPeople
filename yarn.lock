@@ -1758,9 +1758,14 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
-"@fontsource/lexend@^4.5.1":
-  "integrity" "sha512-opFE25zKj2vo978f+QWgID9K4qMsPE6S59RRuwOcyuVL0pBbTErYUVWxfHn8kgDGyy99w+vwxoKI2hGqCHeN2g=="
-  "resolved" "https://registry.npmjs.org/@fontsource/lexend/-/lexend-4.5.1.tgz"
+"@fontsource/raleway@^4.5.3":
+  "integrity" "sha512-wJ8Rm8k5MuSnfERuL5Q1bd8Z80o3uWpC1vUmZAxcLXAY9IxnfGqZjZJ1Jd2lY1u5NaEo+zXCvHEViAIv6b1jEg=="
+  "resolved" "https://registry.npmjs.org/@fontsource/raleway/-/raleway-4.5.3.tgz"
+  "version" "4.5.3"
+
+"@fontsource/syncopate@^4.5.1":
+  "integrity" "sha512-ar9r8Of9touC1yz2zmg0pj1yn1bW7imZRupcEkbPaKY5JtmQeebCbqRU0dmo7pCFaq4k5bOrVzKcsXcB+lfkbA=="
+  "resolved" "https://registry.npmjs.org/@fontsource/syncopate/-/syncopate-4.5.1.tgz"
   "version" "4.5.1"
 
 "@humanwhocodes/config-array@^0.5.0":

@@ -18,7 +18,9 @@ const extendedColors : DeepPartial<
 }
 
 /** @override chakra colors here */
-const overrideChakraColors: DeepPartial<Theme["colors"]> = {};
+const overrideChakraColors: DeepPartial<Theme["colors"]> = {
+    
+};
 
 const colors = {
     ...overrideChakraColors,

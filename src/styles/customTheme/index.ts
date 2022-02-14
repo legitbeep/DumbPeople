@@ -10,6 +10,7 @@ const customTheme = extendTheme({
     components : {
         Button,
     },
+    useSystemColorMode: true,
 });
 
 export default customTheme;

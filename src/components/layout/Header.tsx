@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const Header = () => (
   <Flex as="header" width="full" align="center">
-    <Heading as="h1" size="md">
+    <Heading as="h1" size="md" >
       <Link href="/">DumbPeople</Link>
     </Heading>
 
