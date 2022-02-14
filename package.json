@@ -1,0 +1,53 @@
+{
+  "name": "nextchakra-starter",
+  "private": true,
+  "author": "legitbeep",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "eslint --fix",
+    "prepare": "husky install",
+    "release": "standard-version",
+    "post-build": "next-sitemap"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.7.2",
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
+    "@fontsource/lexend": "^4.5.1",
+    "framer-motion": "^4.1.17",
+    "next": "12.0.4",
+    "next-pwa": "^5.4.1",
+    "next-seo": "^4.28.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@types/node": "16.11.9",
+    "@types/react": "17.0.35",
+    "commitlint": "^15.0.0",
+    "eslint": "7",
+    "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1",
+    "typescript": "4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint '*/**/*.{js,jsx}' --fix"
+    ]
+  }
+}

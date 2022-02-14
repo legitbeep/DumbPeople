@@ -1,0 +1,25 @@
+---
+# For reference see https://www.gitpod.io/docs/references/gitpod-yml
+tasks:
+  - init: npm install
+    command: |
+      export HMR_HOST=`gp url 3000`
+      echo "🚀 Starting Server..."
+      npm run dev
+      echo "🎉 Server Started!"
+    env:
+      BASE_URL: localhost:3000
+
+ports:
+  - port: 3000
+    onOpen: open-browser
+
+vscode:
+  extensions:
+    - zhuangtongfa.material-theme
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true

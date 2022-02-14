@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "next", 
+    "next/core-web-vitals", 
+    "prettier", 
+    "plugin:react/jsx-runtime",
+    "plugin:@next/next/recommended"
+  ],
+  "rules" : {
+    "no-unused-vars" : "warn"
+    // "react/jsx-props-no-spreading": "off",
+    // remove above comment if getting error in jsx
+  }
+}
