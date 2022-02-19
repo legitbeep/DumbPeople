@@ -37,13 +37,13 @@ const HeroSection = () => {
           fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
           lineHeight={'110%'}>
           Home brew{' '}
-          <Text as={'span'} color={'orange.400'}>
+          <Text as={'span'} className={"grad-txt"}>
             premium NFT{' '}
           </Text>
           Collection
         </Heading>
         <Text color={'gray.500'} maxW={'3xl'}>
-          These NFT's are deployed on ropsten testnet so basically you can buy and use these NFT for <Text as="b" color="orange.400">free{' '}</Text>
+          These NFT's are deployed on ropsten testnet so basically you can buy and use these NFT for <Text as="b" className="grad-txt">free{' '}</Text>
           on the testnet. So, what are you waiting for grab your free coins and go shopping
           for some Dumb People NFTs.
         </Text>
@@ -52,9 +52,7 @@ const HeroSection = () => {
             <Button
               rounded={'full'}
               px={6}
-              colorScheme={'orange'}
-              bg={'orange.400'}
-              _hover={{ bg: 'orange.500' }}>
+              className="grad-bg">
               Get started
             </Button>
           </Link>

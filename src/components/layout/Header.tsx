@@ -34,8 +34,8 @@ const Header = () => {
 
   return (
   <Flex as="header" width="full" align="center">
-    <Heading as="h1" size="md" >
-      <Link href="/">DumbPeople</Link>
+    <Heading as="h1" size="md" className="grad-txt">
+      <Link href="/" >DumbPeople</Link>
     </Heading>
     <Box marginLeft="auto">
       {
@@ -47,17 +47,20 @@ const Header = () => {
           >
           My Collection
         </Button>
+        {
+          !connected ?
           <Button 
             rounded={'full'}
             px={6}
-            colorScheme={!connected ?'orange' : 'green'}
-            bg={!connected ?'orange.400' : 'green.400'}
-            _hover={{ bg: !connected ?'orange.500' : 'green.500' }}
+            className="grad-bg"
             mx="10px"
+            marginRight="20px"
             onClick={login}
-            >
-                {connected ? "1.245000" : "Connect Wallet"}
-            </Button>
+          >
+              Connect Wallet
+          </Button>
+          : null
+        }
         </>
       }
       <ThemeToggle />
