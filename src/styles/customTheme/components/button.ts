@@ -11,7 +11,7 @@ const Button = {
             color : 'white',
             _hover : {
                 boxShadow: "lg",
-                bgGradient: "linear(to-tl, brand.primary 90%, brand.secondary 0%)",
+                bgGradient: "linear(to-tl, brand.primary 100%, brand.secondary 0%)",
             },
             transition: "all 2s ease",
         },

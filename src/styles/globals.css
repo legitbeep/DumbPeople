@@ -39,7 +39,7 @@ a {
 }
 
 .grad-txt {
-  background: -webkit-linear-gradient(350deg, #ce0f50, #fe112d);
+  background: -webkit-linear-gradient(350deg, #fe112d, #ce0f50);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

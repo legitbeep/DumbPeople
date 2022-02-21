@@ -50,14 +50,14 @@ const HeroSection = () => {
             for some Dumb People NFTs.
           </Text>
           <Flex>
-              <Link href="/browse">
+              <Link href="/mint">
                 <Button
                   variant="primary"  px={6} mr={6}>
-                  Get started
+                  Mint Now
                 </Button>
               </Link>
               <Button rounded={'full'} px={6} >
-                Know More
+                Collection
               </Button>
           </Flex>
         </Stack>
