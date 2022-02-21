@@ -1,5 +1,5 @@
 import { useState, useEffect, memo } from 'react';
-import { useColorMode, Flex, Stack, Heading, Text, Button } from "@chakra-ui/react";
+import { useColorMode, Flex, Stack, Heading, Text, Button, HStack } from "@chakra-ui/react";
 import Link from 'next/link';
 import Image from "next/image";
  
@@ -21,62 +21,62 @@ const HeroSection = () => {
         return newImg; 
       })
       console.log("changed")
-    },3300)
+    },2800)
     return () => clearTimeout(timeout);
   },[curImg])
 
   return (
     <>
-        <Stack
-        textAlign={'center'}
-        align={'center'}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}>
-        <Heading
-          fontWeight={700}
-          fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
-          lineHeight={'110%'}>
-          Home brew{' '}
-          <Text as={'span'} className={"grad-txt"}>
-            premium NFT{' '}
+        <Flex
+        textAlign={'start'}
+        align={'start'}
+        spacing={{ base: 8 }}
+        py={{ base: 16, md: "55px" }}
+        direction={{base:"column",lg:"row"}}>
+        <Stack spacing={6} >
+          <Heading
+            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
+            lineHeight={'110%'}
+            >
+            Home brew{' '}
+            <Text as={'span'} variant="primary">
+              premium NFT{' '}
+            </Text>
+            Collection
+          </Heading>
+          <Text color={'gray.500'} maxW={'3xl'}>
+            These NFT's are deployed on ropsten testnet so basically you can buy and use these NFT for <Text as="b" variant="primary">FREE{' '}</Text>
+            on the testnet. So, what are you waiting for grab your free coins and go shopping
+            for some Dumb People NFTs.
           </Text>
-          Collection
-        </Heading>
-        <Text color={'gray.500'} maxW={'3xl'}>
-          These NFT's are deployed on ropsten testnet so basically you can buy and use these NFT for <Text as="b" className="grad-txt">free{' '}</Text>
-          on the testnet. So, what are you waiting for grab your free coins and go shopping
-          for some Dumb People NFTs.
-        </Text>
-        <Stack spacing={6} direction={'row'}>
-          <Link href="/browse">
-            <Button
-              rounded={'full'}
-              px={6}
-              className="grad-bg">
-              Get started
-            </Button>
-          </Link>
-          <Button rounded={'full'} px={6}>
-            Know More
-          </Button>
+          <Flex>
+              <Link href="/browse">
+                <Button
+                  variant="primary"  px={6} mr={6}>
+                  Get started
+                </Button>
+              </Link>
+              <Button rounded={'full'} px={6} >
+                Know More
+              </Button>
+          </Flex>
         </Stack>
         <Flex w={'full'}>
           <MotionBox
               animate={{ y: 20, scale: 0.97 }}
-              transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
-              marginY={8}
-              maxWidth={[240, 320]}
+              transition={{ repeat: Infinity, duration: 1.5, repeatType: "reverse" }}
+              maxWidth={400}
               marginX="auto"
             >
               <Image
                 src={`/p${curImg}.svg`}
                 width={400}
                 height={400}
-                alt="Welcome illustration"
+                alt="nfts"
               />
             </MotionBox>
         </Flex>
-      </Stack>
+      </Flex>
     </>
   );
 };

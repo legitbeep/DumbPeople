@@ -1,6 +1,21 @@
 :root {
   --sf: Raleway, sans-serif;
   --pf: Syncopate, sans-serif;
+  --prim-grad: #ce0f50;
+  --secon-grad: #fe112d;
+}
+
+@font-face {
+  font-family: "AkiraBold";
+  src: local("AkiraBold"),
+    url("../fonts/AkiraBold.otf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "AkiraOutline";
+  src: local("AkiraOutline"),
+    url("../fonts/AkiraOutline.otf") format("truetype");
+  font-weight: normal;
 }
 
 html,
@@ -20,11 +35,20 @@ a {
 }
 
 .grad-bg {
-  background-image : -webkit-linear-gradient(0deg, rgb(255, 0, 119) 0%, rgb(255, 72, 0) 100%) !important;
+  background-image : -webkit-linear-gradient(350deg, #ce0f50, #fe112d) !important;
 }
 
 .grad-txt {
-  background: -webkit-linear-gradient(0deg, rgb(255, 0, 119) 0%, rgb(255, 72, 0) 100%);
+  background: -webkit-linear-gradient(350deg, #ce0f50, #fe112d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.outline-txt {
+  font-family: AkiraOutline, var(--sf);
+}
+.outline-txt-grad {
+  font-family: AkiraOutline, var(--sf);
+  bgGradient: -webkit-linear-gradient(350deg, var(--prim-grad) 25%, var(--secon-grad) 75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
