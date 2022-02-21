@@ -15,4 +15,5 @@ module.exports = withPWA({
     register: true,
   },
   reactStrictMode: true,
+  optimizeFonts: true,
 });

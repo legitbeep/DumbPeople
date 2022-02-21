@@ -29,7 +29,7 @@ const HeroSection = () => {
     <>
         <Flex
         textAlign={'start'}
-        align={'start'}
+        align={'end'}
         spacing={{ base: 8 }}
         py={{ base: 16, md: "55px" }}
         direction={{base:"column",lg:"row"}}>
