@@ -105,7 +105,7 @@ export const TransactionProvider:React.FC = ({children}) => {
     useEffect(() => {
         if(currAcc != "")
             getOwnedTokens();
-    },[currAcc])
+    },[currAcc,state])
 
     return (
         <TransactionContext.Provider value={{ connectWallet, currAcc, mintNft, state, ownerCollection, txHash, getOwnedTokens }}>

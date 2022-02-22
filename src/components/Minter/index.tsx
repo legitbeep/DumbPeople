@@ -70,7 +70,7 @@ const Minter = () => {
                         alt="nft"
                     />
                     <Box position="absolute" bottom="0" width="110%" opacity="0.6" bg={bg} py={4} display="flex" justifyContent="center">
-                        <Heading as="p" variant="primary" fontSize="sm">{nftPath == "/nft/question.gif" ? "MINT TO REVEAL" : nftPath.slice(4,nftPath.length-4)}</Heading>
+                        <Heading as="p" variant="primary" fontSize="sm">{nftPath == "/nft/question.gif" ? "MINT TO REVEAL" : nftPath.slice(5,nftPath.length-4)}</Heading>
                     </Box>
                 </Box>
                 </Box>

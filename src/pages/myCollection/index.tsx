@@ -17,7 +17,6 @@ const Minter = () => {
     const bg = useColorModeValue("white","rgb(14, 16, 21)");
 
      useEffect(() => {
-        console.log("RANNNNN",ownerCollection)
         const size = ownerCollection.length;
         if(size > 1){
             const tokens:string[] = [];
@@ -54,20 +53,22 @@ const Minter = () => {
                                 fontSize={{ base: '3xl', sm: '4xl', md: '5xl' }}>Here is your dumb collection of NFT's.</Heading>
                             <Heading className="outline-txt">Hope it was worth it.</Heading>
                         </Box>
-                        {
-                            nftPaths.map(nftPath => (
-                                <Box minW="300px" position="relative" m="12px" minH="300px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">
-                                    <img
-                                        style={{height:"310px"}}
-                                        src={`/nft/${nftPath}`}
-                                        alt="nft"
-                                    />
-                                    <Box position="absolute" bottom="0" width="110%" opacity="0.6" bg={bg} py={4} display="flex" justifyContent="center">
-                                        <Heading as="p" variant="primary" fontSize="sm">{nftPath.slice(0,nftPath.length-4)}</Heading>
+                        <Box display="flex" justifyContent="center" flexWrap="wrap">
+                            {
+                                nftPaths.map(nftPath => (
+                                    <Box minW="240px" position="relative" m="12px" minH="240px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">
+                                        <img
+                                            style={{height:"250px"}}
+                                            src={`/nft/${nftPath}`}
+                                            alt="nft"
+                                        />
+                                        <Box position="absolute" bottom="0" width="110%" opacity="0.6" bg={bg} py={4} display="flex" justifyContent="center">
+                                            <Heading as="p" variant="primary" fontSize="sm">{nftPath.slice(0,nftPath.length-4)}</Heading>
+                                        </Box>
                                     </Box>
-                                </Box>
-                            ))
-                        }
+                                ))
+                            }
+                        </Box>
                     </Box>
                 )
                 : (<Heading>Please connect your wallet to proceed</Heading>)
