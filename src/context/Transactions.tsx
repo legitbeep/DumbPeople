@@ -9,7 +9,8 @@ export const TransactionContext = createContext({
     mintNft: (amnt?:string) => {},
     state: {loading: false, success: true},
     ownerCollection:[""],
-    txHash: ""
+    txHash: "",
+    getOwnedTokens: () => {}
 });
 
 // @ts-ignore
@@ -60,16 +61,15 @@ export const TransactionProvider:React.FC = ({children}) => {
     }
 
     const getOwnedTokens = () => { 
-        let ownedTokens = [""];
+        const ownedTokens = [""];
         const transactionContract = getEthereumContract();
         transactionContract.walletOfOwner(currAcc)
             .then((res:any) => {
-                console.log(res)
                 res.forEach((token:any) => {
                     ownedTokens.push(token.toNumber())
                 })
+                setOwnerCollection(ownedTokens);
             })
-        setOwnerCollection(ownedTokens);
     }
 
     const mintNft = async(amnt?:string) => {
@@ -108,7 +108,7 @@ export const TransactionProvider:React.FC = ({children}) => {
     },[currAcc])
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currAcc, mintNft, state, ownerCollection, txHash }}>
+        <TransactionContext.Provider value={{ connectWallet, currAcc, mintNft, state, ownerCollection, txHash, getOwnedTokens }}>
             {children}
         </TransactionContext.Provider>
     );

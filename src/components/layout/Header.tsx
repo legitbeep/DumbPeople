@@ -83,17 +83,30 @@ const Header = () => {
                         Collection
                     </Button>
                   </Link>
+                  </>)
+                  :null
+                  }
+                  
+                  <Link href="/mint">
+<Button 
+                        rounded={'full'}
+                        px={6}
+                        mx="10px"
+                        marginRight="20px"
+                      ></Button>
+                  </Link>
                   {
                     currAcc !== "" ?
-                    <Button 
-                      rounded={'full'}
-                      px={6}
-                      mx="10px"
-                      marginRight="20px"
-                      disabled
-                    >
-                        Connected
-                    </Button>
+                    <Link href="/myCollection">
+                      <Button 
+                        rounded={'full'}
+                        px={6}
+                        mx="10px"
+                        marginRight="20px"
+                      >
+                          My Collection
+                      </Button>
+                    </Link>
                     :
                     <Button 
                       rounded={'full'}
@@ -105,9 +118,6 @@ const Header = () => {
                     >
                         Connect Wallet
                     </Button>
-                  }
-                  </>)
-                  :null
                   }
                 <ThemeToggle />
               </VStack>
@@ -121,37 +131,45 @@ const Header = () => {
                   rounded={'full'}
                   px={6}
                   mx="10px"
-                  marginRight="20px"
                 >
                     Collection
                 </Button>
               </Link>
-              {
-                    currAcc !== "" ?
-                    <Button 
-                      rounded={'full'}
-                      px={6}
-                      mx="10px"
-                      marginRight="20px"
-                      disabled
-                    >
-                        Connected
-                    </Button>
-                    :
-                    <Button 
-                      rounded={'full'}
-                      px={6}
-                      mx="10px"
-                      marginRight="20px"
-                      onClick={login}
-                      variant="primary"
-                    >
-                        Connect Wallet
-                    </Button>
-                  }
               </>)
               : null
             }
+            <Link href="/mint">
+              <Button 
+                        rounded={'full'}
+                        px={6}
+                        mx="10px"
+                        marginRight="20px"
+                      >Mint</Button>
+            </Link>
+            {
+                  currAcc !== "" ?
+                  <Link href="/myCollection">
+                    <Button 
+                      rounded={'full'}
+                      px={6}
+                      mx="10px"
+                      marginRight="20px"
+                    >
+                        My Collection
+                    </Button>
+                  </Link>
+                  :
+                  <Button 
+                    rounded={'full'}
+                    px={6}
+                    mx="10px"
+                    marginRight="20px"
+                    onClick={login}
+                    variant="primary"
+                  >
+                      Connect Wallet
+                  </Button>
+                }
               <ThemeToggle />
           </HStack>
     </Box>

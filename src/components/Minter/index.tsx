@@ -1,5 +1,5 @@
 import React,{ useEffect, useState, useContext } from 'react';
-import { Button, Box, Text, Heading } from '@chakra-ui/react'
+import { Button, Box, Text, Heading,useColorModeValue } from '@chakra-ui/react'
 
 import { TransactionContext } from "context/Transactions";
 import AlertDialog from 'components/AlertDialog';
@@ -15,6 +15,7 @@ const Minter = () => {
     const [isAlert, setIsAlert] = useState(false);
     const [nftPath, setNftPath] = useState("/nft/question.gif");
     const [txLink, setTxLink] = useState("");
+    const bg = useColorModeValue("white","rgb(14, 16, 21)");
 
     const onAlert = () => {
         setIsAlert(true);
@@ -33,10 +34,6 @@ const Minter = () => {
             setNftPath(`/nft/${NFT[parseInt(ownerCollection[size-1])]}`)
         }
     },[state])
-
-    useEffect(() => {
-        console.log(ownerCollection)
-    }, [currAcc,ownerCollection])
 
     return (
         <>
@@ -66,13 +63,16 @@ const Minter = () => {
                     }
                 </Box>
                 <Box display="flex" justifyContent="center" alignItems="center" minW="45vw" padding={{base:"40px 0px", lg:0 }}>
-                    <Box minW="340px" minH="340px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">
-                        <img
-                            style={{height:"350px"}}
-                            src={nftPath}
-                            alt="nft"
-                        />
+                <Box minW="340px" position="relative" m="12px" minH="340px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">
+                    <img
+                        style={{height:"350px"}}
+                        src={nftPath}
+                        alt="nft"
+                    />
+                    <Box position="absolute" bottom="0" width="110%" opacity="0.6" bg={bg} py={4} display="flex" justifyContent="center">
+                        <Heading as="p" variant="primary" fontSize="sm">{nftPath == "/nft/question.gif" ? "MINT TO REVEAL" : nftPath.slice(4,nftPath.length-4)}</Heading>
                     </Box>
+                </Box>
                 </Box>
             </Box>
         </>
