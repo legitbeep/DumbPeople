@@ -8,7 +8,7 @@ import Document, {
 } from "next/document";
 import * as React from "react";
 
-const APP_NAME = "nextcharka-starter";
+const APP_NAME = "DumbPeople";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -45,6 +45,20 @@ class MyDocument extends Document {
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="theme-color" content="#FFFFFF" />
+          <link
+              rel="preload"
+              href="/fonts/AkiraBold.otf"
+              as="font"
+              type="font/otf"
+              crossOrigin="anonymous"
+          />
+          <link
+              rel="preload"
+              href="/fonts/AkiraOutline.otf"
+              as="font"
+              type="font/otf"
+              crossOrigin="anonymous"
+          />
           {/* add your own app-icon */}
           {/* <link
             rel="apple-touch-icon"

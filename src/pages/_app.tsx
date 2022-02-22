@@ -8,6 +8,7 @@ import "@fontsource/raleway";
 import defaultSeoConfig from "../../next-seo.config";
 import Layout from "components/layout";
 import customTheme from "styles/customTheme";
+import { TransactionProvider } from 'context/Transactions';
 import "styles/globals.css";
 
 function MyApp({
@@ -17,20 +18,14 @@ function MyApp({
   return (
       <ChakraProvider theme={customTheme}>
         <Head>
-          <link
-              rel="stylesheet"
-              href="../fonts/AkiraBold.otf"
-          />
-          <link
-              rel="stylesheet"
-              href="../fonts/AkiraOutline.otf"
-          />
           <meta name="viewport" content="minimum-scale=1, maximum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover" />
         </Head>
         <DefaultSeo {...defaultSeoConfig} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <TransactionProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </TransactionProvider>
       </ChakraProvider>
   );
 }

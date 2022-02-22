@@ -4,35 +4,36 @@ import { Box, Flex, Heading, Button, IconButton,useDisclosure, VStack, CloseButt
 import {AiOutlineMenu} from 'react-icons/ai';
 import Link from "next/link";
 import {useRouter} from 'next/router'
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import {ethers} from 'ethers'
 
+import {TransactionContext} from 'context/Transactions';
 import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const router = useRouter();
-  const [loginState, setLoginState] = useState('Connect Wallet');
-  const [userAcc, setUserAcc] = useState("");
+  const {connectWallet, currAcc} = useContext(TransactionContext);
   const mobileNav = useDisclosure();
   const bg = useColorModeValue("white","rgb(14, 16, 21)");
 
   const login = async() => {
-    setLoginState("Connecting Wallet...");
-    // @ts-ignore
-    if(!window.ethereum){
-      alert('Please install metamask!');
-      return;
-    }
-    // @ts-ignore
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    await provider.send("eth_requestAccounts",[]);
-    const signer = provider.getSigner();
-    const walletAddr = await signer.getAddress();
-    if(walletAddr){
-      setUserAcc(walletAddr);
-    } 
+    // setLoginState("Connecting Wallet...");
+    // // @ts-ignore
+    // if(!window.ethereum){
+    //   alert('Please install metamask!');
+    //   return;
+    // }
+    // // @ts-ignore
+    // const provider = new ethers.providers.Web3Provider(window.ethereum);
+    // await provider.send("eth_requestAccounts",[]);
+    // const signer = provider.getSigner();
+    // const walletAddr = await signer.getAddress();
+    // if(walletAddr){
+    //   setUserAcc(walletAddr);
+    // } 
+    connectWallet();
   }
-  console.log(router.pathname != "/")
+  
   return (
   <Flex as="header" width="full" align="center">
     <Heading as="h1" size="md" className="grad-txt">
@@ -40,8 +41,6 @@ const Header = () => {
     </Heading>
 
     <Box marginLeft="auto">
-        {
-          router.pathname != "/" ? (
             <Box display={{ base: "inline-flex", md: "none" }}>
               <IconButton
                 display={{ base: "flex", md: "none" }}
@@ -71,65 +70,90 @@ const Header = () => {
                 justifySelf="self-start"
                 onClick={mobileNav.onClose}
               />
-                <Link href="/collection">
-                  <Button 
-                    rounded={'full'}
-                    px={6}
-                    mx="10px"
-                    marginRight="20px"
-                  >
-                      Collection
-                  </Button>
-                </Link>
-                {
-                  router.pathname.split('/').includes('mint') && 
-                  
-                  <Button 
-                    rounded={'full'}
-                    px={6}
-                    mx="10px"
-                    marginRight="20px"
-                    onClick={login}
-                    variant="primary"
-                  >
-                      Connect Wallet
-                  </Button>
-                  
-                }
+              {
+                router.pathname != "/" ? (
+                  <>
+                  <Link href="/collection">
+                    <Button 
+                      rounded={'full'}
+                      px={6}
+                      mx="10px"
+                      marginRight="20px"
+                    >
+                        Collection
+                    </Button>
+                  </Link>
+                  {
+                    currAcc !== "" ?
+                    <Button 
+                      rounded={'full'}
+                      px={6}
+                      mx="10px"
+                      marginRight="20px"
+                      disabled
+                    >
+                        Connected
+                    </Button>
+                    :
+                    <Button 
+                      rounded={'full'}
+                      px={6}
+                      mx="10px"
+                      marginRight="20px"
+                      onClick={login}
+                      variant="primary"
+                    >
+                        Connect Wallet
+                    </Button>
+                  }
+                  </>)
+                  :null
+                  }
                 <ThemeToggle />
               </VStack>
             </Box>
-          ) : null
-        
-        }
         <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
-          <Link href="/collection">
-            <Button 
-              rounded={'full'}
-              px={6}
-              mx="10px"
-              marginRight="20px"
-            >
-                Collection
-            </Button>
-          </Link>
-          {
-            router.pathname.split('/').includes('mint') && 
-            
-            <Button 
-              rounded={'full'}
-              px={6}
-              mx="10px"
-              marginRight="20px"
-              onClick={login}
-              variant="primary"
-            >
-                Connect Wallet
-            </Button>
-            
-          }
-          <ThemeToggle />
-      </HStack>
+        {
+          router.pathname !== "/" ? (
+            <>
+              <Link href="/collection">
+                <Button 
+                  rounded={'full'}
+                  px={6}
+                  mx="10px"
+                  marginRight="20px"
+                >
+                    Collection
+                </Button>
+              </Link>
+              {
+                    currAcc !== "" ?
+                    <Button 
+                      rounded={'full'}
+                      px={6}
+                      mx="10px"
+                      marginRight="20px"
+                      disabled
+                    >
+                        Connected
+                    </Button>
+                    :
+                    <Button 
+                      rounded={'full'}
+                      px={6}
+                      mx="10px"
+                      marginRight="20px"
+                      onClick={login}
+                      variant="primary"
+                    >
+                        Connect Wallet
+                    </Button>
+                  }
+              </>)
+              : null
+            }
+              <ThemeToggle />
+          </HStack>
     </Box>
   </Flex>
 )

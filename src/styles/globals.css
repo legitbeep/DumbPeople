@@ -8,13 +8,13 @@
 @font-face {
   font-family: "AkiraBold";
   src: local("AkiraBold"),
-    url("../fonts/AkiraBold.otf") format("truetype");
+    url("/fonts/AkiraBold.otf") format("truetype");
   font-weight: normal;
 }
 @font-face {
   font-family: "AkiraOutline";
   src: local("AkiraOutline"),
-    url("../fonts/AkiraOutline.otf") format("truetype");
+    url("/fonts/AkiraOutline.otf") format("truetype");
   font-weight: normal;
 }
 

@@ -20,8 +20,7 @@ const HeroSection = () => {
 
         return newImg; 
       })
-      console.log("changed")
-    },2800)
+    },2500)
     return () => clearTimeout(timeout);
   },[curImg])
 
