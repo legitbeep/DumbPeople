@@ -44,11 +44,11 @@ a {
   -webkit-text-fill-color: transparent;
 }
 .outline-txt {
-  font-family: AkiraOutline, var(--sf);
+  font-family: AkiraOutline, var(--sf) !important;
 }
 .outline-txt-grad {
-  font-family: AkiraOutline, var(--sf);
-  bgGradient: -webkit-linear-gradient(350deg, var(--prim-grad) 25%, var(--secon-grad) 75%);
+  font-family: AkiraOutline, var(--sf) !important;
+  background: -webkit-linear-gradient(350deg, #fe112d, #ce0f50);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
