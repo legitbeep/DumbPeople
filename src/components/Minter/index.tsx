@@ -5,15 +5,16 @@ import { TransactionContext } from "context/Transactions";
 import AlertDialog from 'components/AlertDialog';
 import Image from 'next/image';
 
-import nft1  from 'public/p1.svg'
-import nft2  from 'public/p2.svg'
-import nft3  from 'public/p3.svg'
-import nft4  from 'public/p4.svg'
+import {nftMap} from 'utils/contants';
+import Link from 'next/link';
+
+const NFT: {[key: number]: string} = nftMap;
 
 const Minter = () => {
-    const { currAcc, mintNft } = useContext(TransactionContext);
+    const { currAcc, mintNft, state, ownerCollection, txHash } = useContext(TransactionContext);
     const [isAlert, setIsAlert] = useState(false);
     const [nftPath, setNftPath] = useState("/nft/question.gif");
+    const [txLink, setTxLink] = useState("");
 
     const onAlert = () => {
         setIsAlert(true);
@@ -21,8 +22,21 @@ const Minter = () => {
 
     const onMint = () => {
         if(currAcc == "") setIsAlert(true);
-        else mintNft();
+        else {
+            mintNft();
+        }
     }
+
+    useEffect(() => {
+        const size = ownerCollection.length;
+        if(state.success && size > 1){
+            setNftPath(`/nft/${NFT[parseInt(ownerCollection[size-1])]}`)
+        }
+    },[state])
+
+    useEffect(() => {
+        console.log(ownerCollection)
+    }, [currAcc,ownerCollection])
 
     return (
         <>
@@ -41,7 +55,15 @@ const Minter = () => {
                         <li><Text my="7px" as="p">You cant see these NFT on opensea since it doesnt support Ropsten testnet.</Text></li>
                     </ul>
                     {/* <Button minW="150px" mr="20px">My Collection</Button> */}
-                    <Button variant="primary" minW="150px" onClick={onMint}>Mint</Button>
+                    <Button variant="primary" minW="150px" onClick={onMint} disabled={state.loading}>Mint</Button>
+                    {
+                        txHash !== "" &&
+                        <Box mt={8}>
+                            <Text as="p">Check your transaction status{' '}
+                                <a href={`https://ropsten.etherscan.io/tx/${txHash}`} target="_blank" style={{color:'blue'}}>here.</a>
+                            </Text>
+                        </Box>
+                    }
                 </Box>
                 <Box display="flex" justifyContent="center" alignItems="center" minW="45vw" padding={{base:"40px 0px", lg:0 }}>
                     <Box minW="340px" minH="340px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">

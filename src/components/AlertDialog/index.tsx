@@ -42,7 +42,7 @@ const CustomAlert = ({ title, desc, isOpen, setIsOpen } : AlertType) => {
               </AlertDialogBody>
   
               <AlertDialogFooter>
-                <Button variant="primary" onClick={onClose} ml={3}>
+                <Button variant="primary" onClick={onClose} ml={3} minW="150px">
                   OK
                 </Button>
               </AlertDialogFooter>

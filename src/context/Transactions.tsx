@@ -3,14 +3,21 @@ import {ethers} from 'ethers';
 
 import {contractAbi, contractAddr} from 'utils/contants';
 
-export const TransactionContext = createContext({ connectWallet: () => {}, currAcc: "", mintNft: (amnt?:string) => {} });
+export const TransactionContext = createContext({ 
+    connectWallet: () => {}, 
+    currAcc: "", 
+    mintNft: (amnt?:string) => {},
+    state: {loading: false, success: true},
+    ownerCollection:[""],
+    txHash: ""
+});
 
 // @ts-ignore
 const ethereum = typeof window != "undefined" && window.ethereum ? window.ethereum : null;
 
 export const getEthereumContract = () => {
-    const provider = new ethers.providers.Web3Provider(ethereum);
-    const signer = provider.getSigner();
+    const provider = new ethers.providers.Web3Provider(ethereum,"ropsten"); //ethers.getDefaultProvider('ropsten');
+    const signer = provider.getSigner() //new ethers.Wallet(privateKey, provider);;
     const transactionContract = new ethers.Contract(contractAddr, contractAbi, signer);  
 
     return transactionContract;
@@ -29,6 +36,12 @@ export function onAccountsChanged(callback: callbackType) {
 
 export const TransactionProvider:React.FC = ({children}) => {
     const [currAcc,setCurrAcc] = useState('');
+    const [ownerCollection, setOwnerCollection] = useState<string[] | []>([]);
+    const [txHash, setTxHash] = useState("");
+    const [state, setState] = useState({
+        loading: false,
+        success: false,
+    });
 
     const checkIfConnected = async () => {
         try{
@@ -46,16 +59,33 @@ export const TransactionProvider:React.FC = ({children}) => {
         }
     }
 
+    const getOwnedTokens = () => { 
+        let ownedTokens = [""];
+        const transactionContract = getEthereumContract();
+        transactionContract.walletOfOwner(currAcc)
+            .then((res:any) => {
+                console.log(res)
+                res.forEach((token:any) => {
+                    ownedTokens.push(token.toNumber())
+                })
+            })
+        setOwnerCollection(ownedTokens);
+    }
+
     const mintNft = async(amnt?:string) => {
         const transactionContract = getEthereumContract();
         const parsedAmnt = ethers.utils.parseEther("0.01");
-
-        const tx = await transactionContract.mint(1);
-        console.log(`Transaction hash: ${tx.hash}`);
-      
-        const receipt = await tx.wait();
-        console.log(`Reciept: ${receipt}`);
-
+        setState(prev => ({...prev, loading: true}));
+        try { 
+            const tx = await transactionContract.mint(1,{ value: parsedAmnt });
+            setTxHash(tx.hash);
+            await tx.wait();
+            setState(prev => ({...prev, loading: false, success: true}));
+                
+            getOwnedTokens();
+        } catch (err) {
+            setState(prev => ({...prev, loading: false, success: false}));
+        }
     }
 
     const connectWallet = async () => {
@@ -72,12 +102,13 @@ export const TransactionProvider:React.FC = ({children}) => {
         }
     }
 
-    // useEffect(() => {
-    //     onAccountsChanged(setCurrAcc);
-    // },[])
+    useEffect(() => {
+        if(currAcc != "")
+            getOwnedTokens();
+    },[currAcc])
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currAcc, mintNft }}>
+        <TransactionContext.Provider value={{ connectWallet, currAcc, mintNft, state, ownerCollection, txHash }}>
             {children}
         </TransactionContext.Provider>
     );
