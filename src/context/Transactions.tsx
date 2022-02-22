@@ -3,7 +3,7 @@ import {ethers} from 'ethers';
 
 import {contractAbi, contractAddr} from 'utils/contants';
 
-export const TransactionContext = createContext({ connectWallet: () => {}, currAcc: "" });
+export const TransactionContext = createContext({ connectWallet: () => {}, currAcc: "", mintNft: (amnt?:string) => {} });
 
 // @ts-ignore
 const ethereum = typeof window != "undefined" && window.ethereum ? window.ethereum : null;
@@ -12,6 +12,8 @@ export const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transactionContract = new ethers.Contract(contractAddr, contractAbi, signer);  
+
+    return transactionContract;
 } 
 
 type callbackType = (a:string) => void;
@@ -44,6 +46,18 @@ export const TransactionProvider:React.FC = ({children}) => {
         }
     }
 
+    const mintNft = async(amnt?:string) => {
+        const transactionContract = getEthereumContract();
+        const parsedAmnt = ethers.utils.parseEther("0.01");
+
+        const tx = await transactionContract.mint(1);
+        console.log(`Transaction hash: ${tx.hash}`);
+      
+        const receipt = await tx.wait();
+        console.log(`Reciept: ${receipt}`);
+
+    }
+
     const connectWallet = async () => {
         try {
             if (!ethereum) alert("Please install metamask!");
@@ -63,7 +77,7 @@ export const TransactionProvider:React.FC = ({children}) => {
     // },[])
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currAcc }}>
+        <TransactionContext.Provider value={{ connectWallet, currAcc, mintNft }}>
             {children}
         </TransactionContext.Provider>
     );
