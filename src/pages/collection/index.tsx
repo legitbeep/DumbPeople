@@ -54,7 +54,7 @@ const Collection = () => {
             <Box display="flex" justifyContent="center" flexWrap="wrap">
                 {
                     Object.values(NFT).slice(0,curSize).map(nftPath => (
-                        <NftImage nftPath={nftPath} useImage/>
+                        <NftImage nftPath={nftPath} key={nftPath} useImage/>
                     ))
                 }
             </Box>

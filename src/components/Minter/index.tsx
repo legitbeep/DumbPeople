@@ -58,7 +58,7 @@ const Minter = () => {
                         txHash !== "" &&
                         <Box my={4}>
                             <Text as="p">Check your transaction status{' '}
-                                <a href={`https://ropsten.etherscan.io/tx/${txHash}`} target="_blank" style={{color:'blue'}}>here.</a>
+                                <a href={`https://ropsten.etherscan.io/tx/${txHash}`} rel="noreferrer" target="_blank" style={{color:'blue'}}>here.</a>
                             </Text>
                         </Box>
                     }

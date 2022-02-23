@@ -37,7 +37,7 @@ const Header = () => {
   return (
   <Flex as="header" width="full" align="center">
     <Heading as="h1" size="md" className="grad-txt">
-      <Link href="/" >DumbPeople</Link>
+      <Link href="/" passHref>DumbPeople</Link>
     </Heading>
 
     <Box marginLeft="auto">
@@ -73,7 +73,7 @@ const Header = () => {
               {
                 router.pathname != "/" ? (
                   <>
-                  <Link href="/collection">
+                  <Link href="/collection" passHref>
                     <Button 
                       rounded={'full'}
                       px={6}
@@ -87,7 +87,7 @@ const Header = () => {
                   :null
                   }
                   
-                  <Link href="/mint">
+                  <Link href="/mint" passHref>
 <Button 
                         rounded={'full'}
                         px={6}
@@ -97,7 +97,7 @@ const Header = () => {
                   </Link>
                   {
                     currAcc !== "" ?
-                    <Link href="/myCollection">
+                    <Link href="/myCollection" passHref>
                       <Button 
                         rounded={'full'}
                         px={6}
@@ -126,7 +126,7 @@ const Header = () => {
         {
           router.pathname !== "/" ? (
             <>
-              <Link href="/collection">
+              <Link href="/collection" passHref>
                 <Button 
                   rounded={'full'}
                   px={6}
@@ -138,7 +138,7 @@ const Header = () => {
               </>)
               : null
             }
-            <Link href="/mint">
+            <Link href="/mint" passHref>
               <Button 
                         rounded={'full'}
                         px={6}
@@ -148,7 +148,7 @@ const Header = () => {
             </Link>
             {
                   currAcc !== "" ?
-                  <Link href="/myCollection">
+                  <Link href="/myCollection" passHref>
                     <Button 
                       rounded={'full'}
                       px={6}

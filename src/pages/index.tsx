@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-
-import HeroSection from "components/HeroSection";
+import dynamic from 'next/dynamic'
+const HeroSection = dynamic(() => import("components/HeroSection")) ;
 
 const Home = () => {
   return (

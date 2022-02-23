@@ -59,6 +59,7 @@ class MyDocument extends Document {
               type="font/otf"
               crossOrigin="anonymous"
           />
+          <meta name="Description" content="Author: legitbeep, Illustrator: legitbeep, Category: NFT, Price:  0.01 ETH, Length: 5 pages"></meta>
           {/* add your own app-icon */}
           {/* <link
             rel="apple-touch-icon"

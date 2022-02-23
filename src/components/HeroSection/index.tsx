@@ -44,18 +44,18 @@ const HeroSection = () => {
             Collection
           </Heading>
           <Text color={'gray.500'} maxW={'3xl'}>
-            These NFT's are deployed on ropsten testnet so basically you can buy and use these NFT for <Text as="b" variant="primary">FREE{' '}</Text>
+            These NFT&apos;s are deployed on ropsten testnet so basically you can buy and use these NFT for <Text as="b" variant="primary">FREE{' '}</Text>
             on the testnet. So, what are you waiting for grab your free coins and go shopping
             for some Dumb People NFTs.
           </Text>
           <Flex>
-              <Link href="/mint">
+              <Link href="/mint" passHref>
                 <Button
                   variant="primary"  px={6} mr={6}>
                   Mint Now
                 </Button>
               </Link>
-              <Link href="/collection">
+              <Link href="/collection" passHref>
                 <Button rounded={'full'} px={6} >
                   Collection
                 </Button>
