@@ -64,7 +64,7 @@ class MyDocument extends Document {
           <meta property="og:type" content="NFT" />
           <meta property="og:description" content="Dumb NFT for free on ropsten!" />
           <meta property="og:image" content="https://i.ibb.co/xfshxdJ/Frame-1.jpg" />
-          <meta property="og:url" content="https://dumb-people-j6rkoe4m0-legitbeep.vercel.app/" />
+          <meta property="og:url" content="https://dumb-people.vercel.app/" />
           <meta name="twitter:card" content="summary_large_image" />
           {/* add your own app-icon */}
           {/* <link
