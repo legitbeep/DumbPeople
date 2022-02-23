@@ -60,6 +60,12 @@ class MyDocument extends Document {
               crossOrigin="anonymous"
           />
           <meta name="Description" content="Author: legitbeep, Illustrator: legitbeep, Category: NFT, Price:  0.01 ETH, Length: 5 pages"></meta>
+          <meta property="og:title" content="Dumb People" />
+          <meta property="og:type" content="NFT" />
+          <meta property="og:description" content="Dumb NFT for free on ropsten!" />
+          <meta property="og:image" content="https://i.ibb.co/xfshxdJ/Frame-1.jpg" />
+          <meta property="og:url" content="https://dumb-people-j6rkoe4m0-legitbeep.vercel.app/" />
+          <meta name="twitter:card" content="summary_large_image" />
           {/* add your own app-icon */}
           {/* <link
             rel="apple-touch-icon"
