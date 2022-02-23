@@ -7,6 +7,7 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import * as React from "react";
+import { ColorModeScript } from '@chakra-ui/react';
 
 const APP_NAME = "DumbPeople";
 
@@ -77,6 +78,7 @@ class MyDocument extends Document {
           {/* <link rel="manifest" href="/manifest.json" /> */}
         </Head>
         <body>
+          <ColorModeScript initialColorMode={'dark'} />
           <Main />
           <NextScript />
         </body>
