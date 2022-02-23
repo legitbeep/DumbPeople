@@ -35,7 +35,7 @@ const NotFound = () => {
               px={6}
               variant="primary"
             >
-              Let&apos;s Head Back.
+              Let&apos;s Head Back
             </Button>
           </Link>
         </Box>

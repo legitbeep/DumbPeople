@@ -42,7 +42,7 @@ const Collection = () => {
                 <Box maxW="400px" mt="35vh" >
                     <Heading className="outline-txt" fontSize={{ base: '2xl', md: '3xl' }}>Like what you see ?</Heading>
                     <Heading fontSize={{ base: '2xl', md: '3xl' }}>Then its time to mint some !</Heading>
-                    <Link href="/mnt" passHref>
+                    <Link href="/mint" passHref>
                         <Button variant="primary" mt={4}>
                             <Heading fontSize="sm">
                                 Come get some
