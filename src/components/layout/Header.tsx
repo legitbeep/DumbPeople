@@ -37,7 +37,7 @@ const Header = () => {
   return (
   <Flex as="header" width="full" align="center">
     <Heading as="h1" size="md" className="grad-txt">
-      <Link href="/" passHref>DumbPeople</Link>
+      <Link href="/" >DumbPeople</Link>
     </Heading>
 
     <Box marginLeft="auto">
