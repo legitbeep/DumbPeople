@@ -31,7 +31,8 @@ const HeroSection = () => {
         align={'end'}
         spacing={{ base: 8 }}
         py={{ base: 16, md: "55px" }}
-        direction={{base:"column",lg:"row"}}>
+        direction={{base:"column",lg:"row"}}
+        minH="74vh">
         <Stack spacing={6} >
           <Heading
             fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}

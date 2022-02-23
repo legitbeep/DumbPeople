@@ -30,12 +30,10 @@ const NotFound = () => {
 
           <Link href="/" passHref>
             <Button
+              mt={6}
               rounded={'full'}
               px={6}
-              colorScheme={'orange'}
-              bg={'orange.400'}
-              margin="16px"
-              _hover={{ bg: 'orange.500' }}
+              variant="primary"
             >
               Let&apos;s Head Back.
             </Button>
