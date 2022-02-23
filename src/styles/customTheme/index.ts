@@ -20,7 +20,8 @@ const customTheme = extendTheme({
             }
         })
     },
-    useSystemColorMode: true,
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
 });
 
 export default customTheme;
