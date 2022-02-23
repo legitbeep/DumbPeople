@@ -55,9 +55,11 @@ const HeroSection = () => {
                   Mint Now
                 </Button>
               </Link>
-              <Button rounded={'full'} px={6} >
-                Collection
-              </Button>
+              <Link href="/collection">
+                <Button rounded={'full'} px={6} >
+                  Collection
+                </Button>
+              </Link>
           </Flex>
         </Stack>
         <Flex w={'full'}>
