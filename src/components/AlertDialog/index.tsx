@@ -26,11 +26,12 @@ const CustomAlert = ({ title, desc, isOpen, setIsOpen } : AlertType) => {
     return (<>
         <AlertDialog
           isOpen={isOpen}
+          //@ts-ignore
           leastDestructiveRef={cancelRef}
           onClose={onClose}
         >
           <AlertDialogOverlay >
-            <AlertDialogContent bg={bg}>
+            <AlertDialogContent bg={bg} w="40vw" minW="350px">
               <AlertDialogHeader >
                 <Heading fontSize="md">
                   {title}
