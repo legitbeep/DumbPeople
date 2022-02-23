@@ -93,7 +93,7 @@ const Header = () => {
                         px={6}
                         mx="10px"
                         marginRight="20px"
-                      ></Button>
+                      >Mint</Button>
                   </Link>
                   {
                     currAcc !== "" ?

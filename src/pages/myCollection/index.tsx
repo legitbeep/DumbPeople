@@ -3,10 +3,9 @@ import { Button, Box, Text, Heading,useColorModeValue } from '@chakra-ui/react'
 
 import { TransactionContext } from "context/Transactions";
 import AlertDialog from 'components/AlertDialog';
-import Image from 'next/image';
+import NftImage from 'components/NftImage';
 
 import {nftMap} from 'utils/contants';
-import Link from 'next/link';
 
 const NFT: {[key: number]: string} = nftMap;
 
@@ -53,19 +52,10 @@ const Minter = () => {
                                 fontSize={{ base: '3xl', sm: '4xl', md: '5xl' }}>Here is your dumb collection of NFT's.</Heading>
                             <Heading className="outline-txt">Hope it was worth it.</Heading>
                         </Box>
-                        <Box display="flex" justifyContent="center" flexWrap="wrap">
+                        <Box display="flex" justifyContent="center" flexWrap="wrap" padding={{base:'0',md:"0 0 0 60px"}}>
                             {
                                 nftPaths.map(nftPath => (
-                                    <Box minW="240px" position="relative" m="12px" minH="240px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">
-                                        <img
-                                            style={{height:"250px"}}
-                                            src={`/nft/${nftPath}`}
-                                            alt="nft"
-                                        />
-                                        <Box position="absolute" bottom="0" width="110%" opacity="0.6" bg={bg} py={4} display="flex" justifyContent="center">
-                                            <Heading as="p" variant="primary" fontSize="sm">{nftPath.slice(0,nftPath.length-4)}</Heading>
-                                        </Box>
-                                    </Box>
+                                    <NftImage nftPath={nftPath} />
                                 ))
                             }
                         </Box>

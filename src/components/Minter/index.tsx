@@ -15,6 +15,7 @@ const Minter = () => {
     const [isAlert, setIsAlert] = useState(false);
     const [nftPath, setNftPath] = useState("/nft/question.gif");
     const [txLink, setTxLink] = useState("");
+    const [lastSize, setLastSize] = useState(1);
     const bg = useColorModeValue("white","rgb(14, 16, 21)");
 
     const onAlert = () => {
@@ -30,8 +31,9 @@ const Minter = () => {
 
     useEffect(() => {
         const size = ownerCollection.length;
-        if(state.success && size > 1){
+        if(state.success && size > lastSize){
             setNftPath(`/nft/${NFT[parseInt(ownerCollection[size-1])]}`)
+            setLastSize(size);
         }
     },[state])
 
@@ -52,15 +54,16 @@ const Minter = () => {
                         <li><Text my="7px" as="p">You cant see these NFT on opensea since it doesnt support Ropsten testnet.</Text></li>
                     </ul>
                     {/* <Button minW="150px" mr="20px">My Collection</Button> */}
-                    <Button variant="primary" minW="150px" onClick={onMint} disabled={state.loading}>Mint</Button>
                     {
                         txHash !== "" &&
-                        <Box mt={8}>
+                        <Box my={4}>
                             <Text as="p">Check your transaction status{' '}
                                 <a href={`https://ropsten.etherscan.io/tx/${txHash}`} target="_blank" style={{color:'blue'}}>here.</a>
                             </Text>
                         </Box>
                     }
+                    <Button variant="primary" minW="150px" onClick={onMint} disabled={state.loading}>Mint</Button>
+                    
                 </Box>
                 <Box display="flex" justifyContent="center" alignItems="center" minW="45vw" padding={{base:"40px 0px", lg:0 }}>
                 <Box minW="340px" position="relative" m="12px" minH="340px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">
