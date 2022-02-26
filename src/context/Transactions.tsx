@@ -79,10 +79,12 @@ export const TransactionProvider:React.FC = ({children}) => {
         try { 
             const tx = await transactionContract.mint(1,{ value: parsedAmnt });
             setTxHash(tx.hash);
-            await tx.wait();
-            setState(prev => ({...prev, loading: false, success: true}));
-                
-            getOwnedTokens();
+            tx.wait()
+                .then((res:any) => {
+                    setState(prev => ({...prev, loading: false, success: true}));
+                    getOwnedTokens();
+                })
+            
         } catch (err) {
             setState(prev => ({...prev, loading: false, success: false}));
         }

@@ -31,11 +31,11 @@ const Minter = () => {
 
     useEffect(() => {
         const size = ownerCollection.length;
-        if(state.success && size > lastSize){
+        if(state.success && !state.loading && size > lastSize){
             setNftPath(`/nft/${NFT[parseInt(ownerCollection[size-1])]}`)
             setLastSize(size);
         }
-    },[state])
+    },[ownerCollection])
 
     return (
         <>
