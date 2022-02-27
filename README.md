@@ -9,7 +9,6 @@ I have used following stack for this project :
  - Chakra UI
  - Solidity ( The contract for NFT could be found [here](https://github.com/legitbeep/smart_contracts/blob/main/contracts/efficient_nft.sol))
  - Node js ( For making nft which can be found [here](https://github.com/legitbeep/nft-generator))
- - 
 
 ## 👩‍💻 Project Usage
 Project setup is simple download code, install packages and fire up the project. Make sure the changes are limited to frontend because changing contract artifacts or address may cause project to break.
