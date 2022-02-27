@@ -1,7 +1,7 @@
 # 👋 Welcome to DumbPeople!
 Hi! Dumb People is personal NFT project built in process of learning blockchain. The project is on **Ropsten** test net so all the NFT could be bought for **free**. So, what are you waiting for get free coins from Ropsten faucet such as [here](https://www.moonborrow.com/) and start minting NFT right now.
 
-
+![enter image description here](https://raw.githubusercontent.com/legitbeep/DumbPeople/master/public/nftGif.gif)
 # ⚙ Tech Stack
 I have used following stack for this project : 
  - Next js
