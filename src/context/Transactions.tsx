@@ -60,6 +60,19 @@ export const TransactionProvider:React.FC = ({children}) => {
         }
     }
 
+    const getEvents = () => {
+        const transactionContract = new ethers.Contract(contractAddr, contractAbi);
+        const filter1 = transactionContract.filters.Transfer("0x9d9b621d1a2e34e47d001738ca5991029f8fa16f");
+        const filter2 = transactionContract.filters.Transfer(null, "0x9d9b621d1a2e34e47d001738ca5991029f8fa16f");
+        //('Transfer', options, (err:any, events:any) => console.log(err, events))
+        // contract.estimateGas.contractFn(args...);
+        // console.log(transactionContract)
+        // transactionContract.queryFilter('Transfer', block1, block2);
+        // transactionContract.queryFilter(, block1, block2);
+
+        return [filter1, filter2]
+    }
+
     const getOwnedTokens = () => { 
         const ownedTokens = [""];
         const transactionContract = getEthereumContract();
@@ -70,6 +83,7 @@ export const TransactionProvider:React.FC = ({children}) => {
                 })
                 setOwnerCollection(ownedTokens);
             })
+        console.log("EVENTS------", getEvents());
     }
 
     const mintNft = async(amnt?:string) => {
