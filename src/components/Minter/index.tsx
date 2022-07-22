@@ -65,8 +65,8 @@ const Minter = () => {
                     <Button variant="primary" minW="150px" onClick={onMint} disabled={state.loading}>Mint</Button>
                     
                 </Box>
-                <Box display="flex" justifyContent="center" alignItems="center" minW="45vw" padding={{base:"40px 0px", lg:0 }}>
-                <Box minW="340px" position="relative" m="12px" minH="340px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">
+                <Box display="flex" marginLeft="auto" justifyContent="center" alignItems="center" minW="45vw" padding={{base:"40px 0px", lg:0 }}>
+                <Box  minW="340px" position="relative" m="12px" minH="340px" boxShadow="lg" borderRadius="22px" overflow="hidden" mx="auto">
                     <img
                         style={{height:"350px"}}
                         src={nftPath}

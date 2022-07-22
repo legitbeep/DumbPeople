@@ -14,9 +14,9 @@ ports:
   - port: 3000
     onOpen: open-browser
 
-vscode:
-  extensions:
-    - zhuangtongfa.material-theme
+# vscode:
+#   extensions:
+#     - zhuangtongfa.material-theme
 
 github:
   prebuilds:
